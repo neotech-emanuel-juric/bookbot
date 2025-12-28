@@ -1,3 +1,5 @@
+import sys
+
 from stats import count_each_char, count_words, sort_count_charts
 
 
@@ -8,13 +10,17 @@ def get_book_text(filepath: str) -> str:
 
 
 def main():
-    path = "books/frankenstein.txt"
+    # Check if additional argument was given
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    path = sys.argv[1]
     text = get_book_text(path)
     count = count_words(text)
     count_chars = count_each_char(text)
 
     ## Printing
-
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {path}...")
     print("----------- Word Count ----------")

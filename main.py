@@ -20,7 +20,9 @@ def main():
     print("----------- Word Count ----------")
     print(f"Found {count} total words")
     print("--------- Character Count -------")
-    print(sort_count_charts(count_chars))
+    for value in sort_count_charts(count_chars):
+        print(f"{value['char']}: {value['num']}")
+    print("============= END ===============")
 
 
 if __name__ == "__main__":

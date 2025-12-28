@@ -19,3 +19,19 @@ def count_each_char(text: str) -> dict:
             counted_chars[char_l] += 1
 
     return counted_chars
+
+
+# Copied directly from boot.dev course. This just returns the value of key "num" out of the input dictionary
+def sort_on(items: dict):
+    return items["num"]
+
+
+def sort_count_charts(counts: dict) -> list:
+    sorted_counts = []
+
+    for key in counts:
+        if key.isalpha():
+            # Create seperate dictionaries within the list, where "char" is the key and "num" the value.
+            sorted_counts.append({"char": key, "num": counts[key]})
+    sorted_counts.sort(reverse=True, key=sort_on)
+    return sorted_counts
